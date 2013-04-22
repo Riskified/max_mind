@@ -17,7 +17,7 @@ describe MaxMindGeoIp::CountryService do
       @valid_response = 'US'
       Net::HTTP.stub!(:get).and_return(@valid_response)
       @response = MaxMindGeoIp::CountryService.fetch_for_ip(@ip)
-      @response.should == {:country=>"US", :api_response => @valid_response}
+      @response.should == {:ip_country=>"US", :api_response => @valid_response}
     end
 
     ['WHAteVEr', 'g@rbag3', '432153'].each do |r|

@@ -17,7 +17,7 @@ describe MaxMindGeoIp::CityIspOrgService do
       @valid_response = 'US,NY,Brooklyn,11222,40.728001,-73.945297,501,718,"Road Runner","Road Runner"'
       Net::HTTP.stub!(:get).and_return(@valid_response)
       @response = MaxMindGeoIp::CityIspOrgService.fetch_for_ip(@ip)
-      @response.should == {:latitude=>"40.728001", :longitude=>"-73.945297", :country=>"US", :city=>"Brooklyn", :postal_code=>"11222", :state=>"NY", :api_response => @valid_response}
+      @response.should == {:ip_latitude=>"40.728001", :ip_longitude=>"-73.945297", :ip_country=>"US", :ip_city=>"Brooklyn", :ip_postal_code=>"11222", :ip_state=>"NY", :ip_isp=>"Road Runner",:ip_org=>"Road Runner",:api_response => @valid_response}
     end
 
     ['WHAteVEr', 'g@rbag3', '432153'].each do |r|
