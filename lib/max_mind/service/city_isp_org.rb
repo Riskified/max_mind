@@ -7,8 +7,8 @@ module MaxMindGeoIp
       if self.valid_response?
         parsed_response = CSV.parse_line(response)
         {
-          :ip_country => parsed_response[0],
-          :ip_state => parsed_response[1],
+          :ip_country_code => parsed_response[0],
+          :ip_region => parsed_response[1],
           :ip_city => parsed_response[2],
           :ip_postal_code => parsed_response[3],
           :ip_latitude => parsed_response[4],
