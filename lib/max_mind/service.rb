@@ -1,4 +1,4 @@
-module MaxMind
+module MaxMindGeoIp
   class Service
     class << self
       @@base_url = 'http://geoip.maxmind.com'
@@ -38,14 +38,14 @@ module MaxMind
     end
 
     def make_request(ip)
-      if MaxMind::Service.license_key.nil?
+      if MaxMindGeoIp::Service.license_key.nil?
         raise LicenseError.new("License Key is missing")
       end
 
-      uri = URI.parse(MaxMind::Service.base_url)
+      uri = URI.parse(MaxMindGeoIp::Service.base_url)
 
       begin
-        self.response = Net::HTTP.get(uri.host, build_path(:l => MaxMind::Service.license_key, :i => ip), uri.port)
+        self.response = Net::HTTP.get(uri.host, build_path(:l => MaxMindGeoIp::Service.license_key, :i => ip), uri.port)
       rescue EOFError => e
         raise ConnectionError, "The remote server dropped the connection"
       rescue Errno::ECONNRESET => e

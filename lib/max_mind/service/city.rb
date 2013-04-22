@@ -1,4 +1,4 @@
-module MaxMind
+module MaxMindGeoIp
   class CityService < Service
 
     self.base_path = '/b'

@@ -18,7 +18,7 @@ require 'max_mind/service/country'
 require 'max_mind/service/city'
 require 'max_mind/service/city_isp_org'
 
-module MaxMind
+module MaxMindGeoIp
   class LicenseError < StandardError; end
   class ConfigurationError < StandardError; end
   class ConnectionError < StandardError; end

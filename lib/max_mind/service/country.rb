@@ -1,4 +1,4 @@
-module MaxMind
+module MaxMindGeoIp
   class CountryService < Service
 
     self.base_path = '/a'
